@@ -20,3 +20,7 @@ install:
     - cmake ../src
     - make
     - ./travistest
+    - cd ..
+script:
+    - cd tests
+    - ./run_test.sh
