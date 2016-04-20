@@ -1,0 +1,10 @@
+sudo: required
+
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - bisonc++
+      - python-setuptools
+      - flexc++
