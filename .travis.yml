@@ -7,4 +7,3 @@ addons:
     packages:
       - bisonc++
       - python-setuptools
-      - flexc++
