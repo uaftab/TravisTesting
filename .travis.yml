@@ -7,3 +7,6 @@ addons:
     packages:
       - bisonc++
       - python-setuptools
+
+before_install:
+    - sudo apt-get install -qq -y --force-yes flexc++ bisonc++ python-setuptools libprotobuf libjudy libpcap automake 
