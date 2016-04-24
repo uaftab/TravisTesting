@@ -79,6 +79,7 @@ matrix:
         env: 
           - COMPILER=clang++-3.8
           - C_COMPILER=clang-3.8
+
 before_install:
 #  - sudo cp /etc/apt/sources.list /etc/apt/sources.list.d/trusty.list
 #  - sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list.d/trusty.list
