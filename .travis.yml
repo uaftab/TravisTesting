@@ -11,6 +11,8 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-4.9
+            - bisonc++
+            - python-setuptools
       env: COMPILER=g++-4.9
     - compiler: gcc
       addons:
@@ -19,6 +21,8 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
+            - bisonc++
+            - python-setuptools
       env: COMPILER=g++-5
     - compiler: clang
       addons:
@@ -28,6 +32,8 @@ matrix:
             - llvm-toolchain-precise-3.6
           packages:
             - clang-3.6
+            - bisonc++
+            - python-setuptools
       env: COMPILER=clang++-3.6
     - compiler: clang
       addons:
@@ -37,20 +43,17 @@ matrix:
             - llvm-toolchain-precise-3.7
           packages:
             - clang-3.7
+            - bisonc++
+            - python-setuptools
       env: COMPILER=clang++-3.7
 
-addons:
-  apt:
-    packages:
-      - bisonc++
-      - python-setuptools
 
 before_install:
   - sudo cp /etc/apt/sources.list /etc/apt/sources.list.d/trusty.list
   - sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list.d/trusty.list
   - sudo apt-get update -qq
   - sudo apt-get install -qq -y --force-yes flexc++ bisonc++ python-setuptools automake
-  - echo $CXX
+  - echo $CXX -v
 
 install:
     - mkdir build 
