@@ -55,7 +55,7 @@ before_install:
 #  - sudo apt-get update -qq
 #  - sudo apt-get install -qq -y --force-yes flexc++ bisonc++ python-setuptools automake
   - echo $COMPILER
-  - export $CXX=$COMPILER
+  - export CXX=$COMPILER
   - $CXX -v
 
 install:
