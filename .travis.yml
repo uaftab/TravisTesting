@@ -7,15 +7,6 @@ matrix:
   include:
     - os: linux
       compiler: gcc
-      cmake:
-        - 2.8.7
-        - 2.9
-        - 3.0
-        - 3.1
-        - 3.2
-        - 3.3
-        - 3.4
-        - 3.5
       addons:
         apt:
           sources: ['ubuntu-toolchain-r-test']
@@ -88,6 +79,16 @@ matrix:
       env: 
         - COMPILER=clang++-3.8
         - C_COMPILER=clang-3.8
+#Clang-3.8/CMAKE 3.5.x
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.8', 'george-edison55-precise-backports']
+          packages: ['clang-3.8', 'cmake', 'cmake-data']
+      env: 
+        - COMPILER=clang++-3.8
+        - C_COMPILER=clang-3.8
 
 before_install:
 #  - sudo cp /etc/apt/sources.list /etc/apt/sources.list.d/trusty.list
@@ -98,6 +99,7 @@ before_install:
   - export CXX=$COMPILER #Need to re-export travis will always export CXX/CC to its default
   - export CC=$C_COMPILER
   - $CXX -v
+  - cmake --version
 
 install:
     - mkdir build 
